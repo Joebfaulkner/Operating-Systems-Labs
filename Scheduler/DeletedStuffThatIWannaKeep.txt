@@ -1,0 +1,18 @@
+    # I was proud of my work so while disfunctional I still kept it in a txt file so that I could have it and not feel like it was wasted effort.
+    int order [nJobs];
+    int temp;
+    int i;
+    for(int x = 1; x < nJobs+1; x++)
+        order[x] = x;
+    int n = sizeof(order)/sizeof(order[0]);
+    for (i = 0; i < n-1; i++)      
+       for (j = 0; j < n-i-1; j++)
+           if (cpuBurst[order[j]] > cpuBurst[order[j+1]])
+            {
+                temp = order[j];
+                order[j] = order[j+1];
+                order[j+1] = temp;
+            }
+    for(int x = 0; x<nJobs; x++)
+        printf("order: %d  cpuBurst : %d\n", order[x], cpuBurst[order[x]]);
+    
